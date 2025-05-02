@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Cellular o.o.d. Parekh</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+mixpanel.init("45da4dcd73c9f511fc152d093652d0ec", {"api_host": "https://api-eu.mixpanel.com", batch_requests: true})</script>
+<script>mixpanel.track("Open page")</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+<div id="nav-placeholder"></div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar-content.html");
+});
+</script>
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Cellular o.o.d. Parekh</h1>
+
+</div>
+
+
+<p>This page displays metrics for the following dataset:</p>
+<div id="rsrhrhbhwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rsrhrhbhwg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rsrhrhbhwg thead, #rsrhrhbhwg tbody, #rsrhrhbhwg tfoot, #rsrhrhbhwg tr, #rsrhrhbhwg td, #rsrhrhbhwg th {
+  border-style: none;
+}
+
+#rsrhrhbhwg p {
+  margin: 0;
+  padding: 0;
+}
+
+#rsrhrhbhwg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rsrhrhbhwg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rsrhrhbhwg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rsrhrhbhwg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rsrhrhbhwg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rsrhrhbhwg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rsrhrhbhwg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rsrhrhbhwg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rsrhrhbhwg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rsrhrhbhwg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rsrhrhbhwg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rsrhrhbhwg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rsrhrhbhwg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rsrhrhbhwg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rsrhrhbhwg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rsrhrhbhwg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rsrhrhbhwg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rsrhrhbhwg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rsrhrhbhwg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rsrhrhbhwg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rsrhrhbhwg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rsrhrhbhwg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rsrhrhbhwg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rsrhrhbhwg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rsrhrhbhwg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rsrhrhbhwg .gt_left {
+  text-align: left;
+}
+
+#rsrhrhbhwg .gt_center {
+  text-align: center;
+}
+
+#rsrhrhbhwg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rsrhrhbhwg .gt_font_normal {
+  font-weight: normal;
+}
+
+#rsrhrhbhwg .gt_font_bold {
+  font-weight: bold;
+}
+
+#rsrhrhbhwg .gt_font_italic {
+  font-style: italic;
+}
+
+#rsrhrhbhwg .gt_super {
+  font-size: 65%;
+}
+
+#rsrhrhbhwg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rsrhrhbhwg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rsrhrhbhwg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rsrhrhbhwg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rsrhrhbhwg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rsrhrhbhwg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rsrhrhbhwg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rsrhrhbhwg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rsrhrhbhwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Category"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Value"></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Dataset</span></td>
+<td headers="Value" class="gt_row gt_left">Parekh</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Description</span></td>
+<td headers="Value" class="gt_row gt_left">test</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Contexts</span></td>
+<td headers="Value" class="gt_row gt_left">Cell lines</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Conditions</span></td>
+<td headers="Value" class="gt_row gt_left">Single</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Metadata</span></td>
+<td headers="Value" class="gt_row gt_left">None</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Perturbation type</span></td>
+<td headers="Value" class="gt_row gt_left">Genetic</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of contexts</span></td>
+<td headers="Value" class="gt_row gt_left">3</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of perturbations</span></td>
+<td headers="Value" class="gt_row gt_left">11</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of cells</span></td>
+<td headers="Value" class="gt_row gt_left">4,346</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<div id="dataset-clusters" class="section level1 tabset" number="1">
+<h1 class="tabset"><span class="header-section-number">1</span> Dataset
+clusters</h1>
+<p><a data-fancybox href="figures/datasets/Parekh_umap.svg">
+<img src="figures/datasets/Parekh_umap.svg"> </a></p>
+<p><br/></p>
+<p><a data-fancybox href="figures/datasets/Parekh_clustermap.svg">
+<img src="figures/datasets/Parekh_clustermap.svg"> </a></p>
+<p><br/></p>
+</div>
+<div id="performance-top-100-degs" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Performance (Top 100
+DEGs)</h1>
+<div id="rank" class="section level2 tabset" number="2.1">
+<h2 class="tabset"><span class="header-section-number">2.1</span>
+Rank</h2>
+<div id="pcc-delta" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs" class="section level3 unnumbered">
+<h3 class="unnumbered">Common DEGs</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-Common%20DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wd" class="section level3 unnumbered">
+<h3 class="unnumbered">WD</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-WD-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence" class="section level3 unnumbered">
+<h3 class="unnumbered">KL divergence</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-RankBased-KL%20divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="score" class="section level2 tabset" number="2.2">
+<h2 class="tabset"><span class="header-section-number">2.2</span>
+Score</h2>
+<div id="pcc-delta-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-1" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Common DEGs</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-Common%20DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wd-1" class="section level3 unnumbered">
+<h3 class="unnumbered">WD</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-WD-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KL divergence</h3>
+<p><img src="figures/Cellular_ood-Parekh-Accuracy-ScoreBased-KL%20divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="predictions"
+class="section level1 tabset tabset-dropdown tabset-fade" number="3">
+<h1 class="tabset tabset-dropdown tabset-fade"><span
+class="header-section-number">3</span> Predictions</h1>
+<p><strong>Perturbation</strong></p>
+<div id="endothelial"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">endothelial</h2>
+<p><strong>Cellular context</strong></p>
+<div id="ascl3" class="section level3 unnumbered">
+<h3 class="unnumbered">ASCL3</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_ASCL3.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_ASCL3.png'>
+</a></p>
+</div>
+<div id="cdx2" class="section level3 unnumbered">
+<h3 class="unnumbered">CDX2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_CDX2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_CDX2.png'>
+</a></p>
+</div>
+<div id="foxp1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXP1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_FOXP1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_FOXP1.png'>
+</a></p>
+</div>
+<div id="hand2" class="section level3 unnumbered">
+<h3 class="unnumbered">HAND2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_HAND2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_HAND2.png'>
+</a></p>
+</div>
+<div id="hoxa10" class="section level3 unnumbered">
+<h3 class="unnumbered">HOXA10</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_HOXA10.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_HOXA10.png'>
+</a></p>
+</div>
+<div id="klf4" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF4</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_KLF4.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_KLF4.png'>
+</a></p>
+</div>
+<div id="lmx1a" class="section level3 unnumbered">
+<h3 class="unnumbered">LMX1A</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_LMX1A.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_LMX1A.png'>
+</a></p>
+</div>
+<div id="myog" class="section level3 unnumbered">
+<h3 class="unnumbered">MYOG</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_MYOG.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_MYOG.png'>
+</a></p>
+</div>
+<div id="snai2" class="section level3 unnumbered">
+<h3 class="unnumbered">SNAI2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_SNAI2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_SNAI2.png'>
+</a></p>
+</div>
+<div id="spi1" class="section level3 unnumbered">
+<h3 class="unnumbered">SPI1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/endothelial_SPI1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/endothelial_SPI1.png'>
+</a></p>
+</div>
+</div>
+<div id="hpsc"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">hPSC</h2>
+<p><strong>Cellular context</strong></p>
+<div id="ascl3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ASCL3</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_ASCL3.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_ASCL3.png'>
+</a></p>
+</div>
+<div id="cdx2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDX2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_CDX2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_CDX2.png'>
+</a></p>
+</div>
+<div id="foxp1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXP1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_FOXP1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_FOXP1.png'>
+</a></p>
+</div>
+<div id="hand2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HAND2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_HAND2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_HAND2.png'>
+</a></p>
+</div>
+<div id="hoxa10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HOXA10</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_HOXA10.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_HOXA10.png'>
+</a></p>
+</div>
+<div id="klf4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF4</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_KLF4.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_KLF4.png'>
+</a></p>
+</div>
+<div id="lmx1a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LMX1A</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_LMX1A.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_LMX1A.png'>
+</a></p>
+</div>
+<div id="myog-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MYOG</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_MYOG.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_MYOG.png'>
+</a></p>
+</div>
+<div id="snai2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">SNAI2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_SNAI2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_SNAI2.png'>
+</a></p>
+</div>
+<div id="spi1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">SPI1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/hPSC_SPI1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/hPSC_SPI1.png'>
+</a></p>
+</div>
+</div>
+<div id="multilineage"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">multilineage</h2>
+<p><strong>Cellular context</strong></p>
+<div id="ascl3-2" class="section level3 unnumbered">
+<h3 class="unnumbered">ASCL3</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_ASCL3.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_ASCL3.png'>
+</a></p>
+</div>
+<div id="cdx2-2" class="section level3 unnumbered">
+<h3 class="unnumbered">CDX2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_CDX2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_CDX2.png'>
+</a></p>
+</div>
+<div id="foxp1-2" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXP1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_FOXP1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_FOXP1.png'>
+</a></p>
+</div>
+<div id="hand2-2" class="section level3 unnumbered">
+<h3 class="unnumbered">HAND2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_HAND2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_HAND2.png'>
+</a></p>
+</div>
+<div id="hoxa10-2" class="section level3 unnumbered">
+<h3 class="unnumbered">HOXA10</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_HOXA10.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_HOXA10.png'>
+</a></p>
+</div>
+<div id="klf4-2" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF4</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_KLF4.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_KLF4.png'>
+</a></p>
+</div>
+<div id="lmx1a-2" class="section level3 unnumbered">
+<h3 class="unnumbered">LMX1A</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_LMX1A.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_LMX1A.png'>
+</a></p>
+</div>
+<div id="myog-2" class="section level3 unnumbered">
+<h3 class="unnumbered">MYOG</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_MYOG.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_MYOG.png'>
+</a></p>
+</div>
+<div id="snai2-2" class="section level3 unnumbered">
+<h3 class="unnumbered">SNAI2</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_SNAI2.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_SNAI2.png'>
+</a></p>
+</div>
+<div id="spi1-2" class="section level3 unnumbered">
+<h3 class="unnumbered">SPI1</h3>
+<p><a data-fancybox href='figures/prediction/Cellular_ood/Parekh/multilineage_SPI1.png'>
+<img src='figures/prediction/Cellular_ood/Parekh/multilineage_SPI1.png'>
+</a></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

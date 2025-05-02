@@ -1,0 +1,33 @@
+method,variable,nzero_ratio_mean
+DCCA,raw scRNA for each cell type,0.8523
+DCCA,raw scRNA for each cell,0.0815
+DCCA,kNN smoothed scRNA for each cell type,0.9624
+DCCA,kNN smoothed scRNA for each cell,0.4447
+DCCA,raw scATAC for each cell type,0.7111
+DCCA,raw scATAC for each cell,0.0318
+DCCA,kNN smoothed scATAC for each cell type,0.9437
+DCCA,kNN smoothed scATAC for each cell,0.2651
+MultiVI,raw scRNA for each cell type,0.8871
+MultiVI,raw scRNA for each cell,0.0833
+MultiVI,kNN smoothed scRNA for each cell type,0.9685
+MultiVI,kNN smoothed scRNA for each cell,0.5076
+MultiVI,raw scATAC for each cell type,0.721
+MultiVI,raw scATAC for each cell,0.0317
+MultiVI,kNN smoothed scATAC for each cell type,0.9388
+MultiVI,kNN smoothed scATAC for each cell,0.2665
+scMVAE,raw scRNA for each cell type,0.8812
+scMVAE,raw scRNA for each cell,0.0817
+scMVAE,kNN smoothed scRNA for each cell type,0.9665
+scMVAE,kNN smoothed scRNA for each cell,0.4993
+scMVAE,raw scATAC for each cell type,NA
+scMVAE,raw scATAC for each cell,NA
+scMVAE,kNN smoothed scATAC for each cell type,NA
+scMVAE,kNN smoothed scATAC for each cell,NA
+scMVP,raw scRNA for each cell type,0.8544
+scMVP,raw scRNA for each cell,0.0583
+scMVP,kNN smoothed scRNA for each cell type,0.9754
+scMVP,kNN smoothed scRNA for each cell,0.4293
+scMVP,raw scATAC for each cell type,0.7234
+scMVP,raw scATAC for each cell,0.0312
+scMVP,kNN smoothed scATAC for each cell type,0.9536
+scMVP,kNN smoothed scATAC for each cell,0.2679
