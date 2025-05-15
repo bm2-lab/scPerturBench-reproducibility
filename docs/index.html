@@ -277,259 +277,610 @@ models to new cellular contexts is presented.</p>
 <h2>Benchmark methods</h2>
 <p>All benchmark methods analyzed in our study are listed below. Details
 of the setting were available in our manuscript.</p>
-<table style="width:100%;">
-<colgroup>
-<col width="25%" />
-<col width="7%" />
-<col width="25%" />
-<col width="1%" />
-<col width="30%" />
-<col width="9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Generalization</th>
-<th>Article</th>
-<th>Time</th>
-<th>Title</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/nitzanlab/biolord">biolord</a></td>
-<td>Cellular context/Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41587-023-02079-x">Nature
-Biotechnology</a></td>
-<td>2024</td>
-<td>Disentanglement of single-cell data with biolord</td>
-<td>0.0.3</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/bunnech/cellot">CellOT</a></td>
-<td>Cellular context</td>
-<td><a href="https://www.nature.com/articles/s41592-023-01969-x">Nature
-Methods</a></td>
-<td>2023</td>
-<td>Learning single-cell perturbation responses using neural optimal
-transport</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/LiouCharlie/INVAE/">inVAE</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://www.mdpi.com/2306-5354/10/9/996">Bioengineering</a></td>
-<td>2023</td>
-<td>Homogeneous Space Construction and Projection for Single-Cell
-Expression Prediction Based on Deep Learning</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a
-href="https://github.com/ZhangLabGT/scDisInFact">scDisInFact</a></td>
-<td>Cellular context</td>
-<td><a href="https://www.nature.com/articles/s41467-024-45227-w">Nature
-Communications</a></td>
-<td>2024</td>
-<td>scDisInFact: disentangled learning for integration and prediction of
-multi-batch multi-condition single-cell RNA-sequencing data</td>
-<td>0.1.0</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/theislab/scgen">scGen</a></td>
-<td>Cellular context</td>
-<td><a href="https://www.nature.com/articles/s41592-019-0494-8">Nature
-Methods</a></td>
-<td>2019</td>
-<td>scGen predicts single-cell perturbation responses</td>
-<td>2.1.0</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/jiang-q19/scPRAM">scPRAM</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://academic.oup.com/bioinformatics/article/40/5/btae265/7646141">Bioinformatics</a></td>
-<td>2024</td>
-<td>scPRAM accurately predicts single-cell gene expression perturbation
-response based on attention mechanism</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/XiajieWei/scPreGAN">scPreGAN</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://academic.oup.com/bioinformatics/article/38/13/3377/6593485">Bioinformatics</a></td>
-<td>2022</td>
-<td>scPreGAN, a deep generative model for predicting the response of
-single-cell expression to perturbation</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/Califorya/SCREEN">SCREEN</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://link.springer.com/article/10.1007/s11704-024-31014-9">Frontiers
-of Computer Science</a></td>
-<td>2024</td>
-<td>SCREEN: predicting single-cell gene expression perturbation
-responses via optimal transport</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/BhattacharyaLab/scVIDR">scVIDR</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://www.cell.com/patterns/fulltext/S2666-3899(23)00186-1">Patterns</a></td>
-<td>2023</td>
-<td>Generative modeling of single-cell gene expression for
-dose-dependent chemical perturbations</td>
-<td>0.0.3</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/theislab/trVAE">trVAE</a></td>
-<td>Cellular context</td>
-<td><a
-href="https://academic.oup.com/bioinformatics/article/36/Supplement_2/i610/6055927">Bioinformatics</a></td>
-<td>2020</td>
-<td>Conditional out-of-distribution generation for unpaired data using
-transfer VAE</td>
-<td>1.1.2</td>
-</tr>
-<tr class="odd">
-<td><a
-href="https://github.com/BaiDing1234/AttentionPert">AttentionPert</a></td>
-<td>Perturbation</td>
-<td><a
-href="https://academic.oup.com/bioinformatics/article/40/Supplement_1/i453/7700899">Bioinformatics</a></td>
-<td>2021</td>
-<td>AttentionPert: Accurately Modeling Multiplexed Genetic Perturbations
-with Multi-scale Effects</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/theislab/cpa">CPA</a></td>
-<td>Perturbation</td>
-<td><a
-href="https://www.embopress.org/doi/full/10.15252/msb.202211517">Molecular
-Systems Biology</a></td>
-<td>2023</td>
-<td>Predicting cellular responses to complex perturbations in
-high-throughput screens</td>
-<td>0.8.5</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/snap-stanford/GEARS">GEARS</a></td>
-<td>Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41587-023-01905-6">Nature
-Biotechnology</a></td>
-<td>2022</td>
-<td>Predicting transcriptional outcomes of novel multigene perturbations
-with GEARS</td>
-<td>0.1.0</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/zou-group/GenePert">GenePert</a></td>
-<td>Perturbation</td>
-<td><a
-href="https://www.biorxiv.org/content/10.1101/2024.10.27.620513v1">bioRxiv</a></td>
-<td>2024</td>
-<td>GenePert: Leveraging GenePT Embeddings for Gene Perturbation
-Prediction</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a
-href="https://github.com/const-ae/linear_perturbation_prediction-Paper">linearModel</a></td>
-<td>Perturbation</td>
-<td><a href="https://doi.org/10.1101/2024.09.16.613342">bioRxiv</a></td>
-<td>2024</td>
-<td>Deep learning-based predictions of gene perturbation effects do not
-yet outperform simple linear methods</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/bowang-lab/scGPT">scGPT</a></td>
-<td>Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41592-024-02201-0">Nature
-Methods</a></td>
-<td>2024</td>
-<td>scGPT: toward building a foundation model for single-cell
-multi-omics using generative AI</td>
-<td>0.2.1</td>
-</tr>
-<tr class="odd">
-<td><a
-href="https://github.com/biomap-research/scFoundation">scFoundation</a></td>
-<td>Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41592-024-02305-7">Nature
-Methods</a></td>
-<td>2024</td>
-<td>Large-scale foundation model on single-cell transcriptomics</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/theislab/chemCPA">chemCPA</a></td>
-<td>Perturbation</td>
-<td><a href="https://arxiv.org/abs/2204.13545">arXiv</a></td>
-<td>2022</td>
-<td>Predicting Cellular Responses to Novel Drug Perturbations at a
-Single-Cell Resolution</td>
-<td>2.0.0</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/PancakeZoy/scouter">scouter</a></td>
-<td>Perturbation</td>
-<td><a href="https://doi.org/10.1101/2024.12.06.627290">bioRxiv</a></td>
-<td>2024</td>
-<td>Scouter: Predicting Transcriptional Responses to Genetic
-Perturbations with LLM embeddings</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/HelloWorldLTY/scELMo">scELMo</a></td>
-<td>Perturbation</td>
-<td><a href="https://arxiv.org/abs/2004.13214">bioRxiv</a></td>
-<td>2024</td>
-<td>scELMo: Embeddings from Language Models are Good Learners for
-Single-cell Data Analysis</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a
-href="https://github.com/xCompass-AI/geneCompass">GeneCompass</a></td>
-<td>Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41422-024-01034-y">Cell
-Research</a></td>
-<td>2024</td>
-<td>GeneCompass: deciphering universal gene regulatory mechanisms with a
-knowledge-informed cross-species foundation model</td>
-<td>0.0.1</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/hliulab/cycleCDR">cycleCDR</a></td>
-<td>Perturbation</td>
-<td><a
-href="https://doi.org/10.1093/bioinformatics/btae248">bioRxiv</a></td>
-<td>2024</td>
-<td>Predicting single-cell cellular responses to perturbations using
-cycle consistency learning</td>
-<td>0.0.1</td>
-</tr>
-<tr class="odd">
-<td><a
-href="https://github.com/Perturbation-Response-Prediction/PRnet">PRnet</a></td>
-<td>Perturbation</td>
-<td><a href="https://www.nature.com/articles/s41467-024-53457-1">Nature
-communication</a></td>
-<td>2024</td>
-<td>Predicting transcriptional responses to novel chemical perturbations
-using deep generative model for drug discovery</td>
-<td>0.0.1</td>
-</tr>
-</tbody>
+<div id="ygjhmdkdmb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ygjhmdkdmb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ygjhmdkdmb thead, #ygjhmdkdmb tbody, #ygjhmdkdmb tfoot, #ygjhmdkdmb tr, #ygjhmdkdmb td, #ygjhmdkdmb th {
+  border-style: none;
+}
+
+#ygjhmdkdmb p {
+  margin: 0;
+  padding: 0;
+}
+
+#ygjhmdkdmb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ygjhmdkdmb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ygjhmdkdmb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ygjhmdkdmb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ygjhmdkdmb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ygjhmdkdmb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ygjhmdkdmb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ygjhmdkdmb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ygjhmdkdmb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ygjhmdkdmb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ygjhmdkdmb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ygjhmdkdmb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ygjhmdkdmb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ygjhmdkdmb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ygjhmdkdmb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygjhmdkdmb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ygjhmdkdmb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ygjhmdkdmb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ygjhmdkdmb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygjhmdkdmb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ygjhmdkdmb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygjhmdkdmb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ygjhmdkdmb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygjhmdkdmb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygjhmdkdmb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygjhmdkdmb .gt_left {
+  text-align: left;
+}
+
+#ygjhmdkdmb .gt_center {
+  text-align: center;
+}
+
+#ygjhmdkdmb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ygjhmdkdmb .gt_font_normal {
+  font-weight: normal;
+}
+
+#ygjhmdkdmb .gt_font_bold {
+  font-weight: bold;
+}
+
+#ygjhmdkdmb .gt_font_italic {
+  font-style: italic;
+}
+
+#ygjhmdkdmb .gt_super {
+  font-size: 65%;
+}
+
+#ygjhmdkdmb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ygjhmdkdmb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ygjhmdkdmb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ygjhmdkdmb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ygjhmdkdmb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ygjhmdkdmb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ygjhmdkdmb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ygjhmdkdmb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ygjhmdkdmb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a-Method"> Method</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Generalization">Generalization</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Article">Article</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Time">Time</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Title">Title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Version">Version</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/nitzanlab/biolord">biolord</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context/Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41587-023-02079-x">Nature Biotechnology</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Disentanglement of single-cell data with biolord</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.3</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/bunnech/cellot">CellOT</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41592-023-01969-x">Nature Methods</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2023</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Learning single-cell perturbation responses using neural optimal transport</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/LiouCharlie/INVAE/">inVAE</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.mdpi.com/2306-5354/10/9/996">Bioengineering</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2023</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Homogeneous Space Construction and Projection for Single-Cell Expression Prediction Based on Deep Learning</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/ZhangLabGT/scDisInFact">scDisInFact</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41467-024-45227-w">Nature Communications</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scDisInFact: disentangled learning for integration and prediction of multi-batch multi-condition single-cell RNA-sequencing data</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.1.0</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/theislab/scgen">scGen</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41592-019-0494-8">Nature Methods</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2019</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scGen predicts single-cell perturbation responses</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>2.1.0</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/jiang-q19/scPRAM">scPRAM</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://academic.oup.com/bioinformatics/article/40/5/btae265/7646141">Bioinformatics</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scPRAM accurately predicts single-cell gene expression perturbation response based on attention mechanism</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/XiajieWei/scPreGAN">scPreGAN</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://academic.oup.com/bioinformatics/article/38/13/3377/6593485">Bioinformatics</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2022</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scPreGAN, a deep generative model for predicting the response of single-cell expression to perturbation</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/Califorya/SCREEN">SCREEN</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://link.springer.com/article/10.1007/s11704-024-31014-9">Frontiers of Computer Science</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>SCREEN: predicting single-cell gene expression perturbation responses via optimal transport</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/BhattacharyaLab/scVIDR">scVIDR</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.cell.com/patterns/fulltext/S2666-3899(23)00186-1">Patterns</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2023</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Generative modeling of single-cell gene expression for dose-dependent chemical perturbations</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.3</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/theislab/trVAE">trVAE</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Cellular context</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://academic.oup.com/bioinformatics/article/36/Supplement_2/i610/6055927">Bioinformatics</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2020</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Conditional out-of-distribution generation for unpaired data using transfer VAE</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>1.1.2</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/BaiDing1234/AttentionPert">AttentionPert</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://academic.oup.com/bioinformatics/article/40/Supplement_1/i453/7700899">Bioinformatics</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2021</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>AttentionPert: Accurately Modeling Multiplexed Genetic Perturbations with Multi-scale Effects</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/theislab/cpa">CPA</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.embopress.org/doi/full/10.15252/msb.202211517">Molecular Systems Biology</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2023</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Predicting cellular responses to complex perturbations in high-throughput screens</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.8.5</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/snap-stanford/GEARS">GEARS</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41587-023-01905-6">Nature Biotechnology</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2022</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Predicting transcriptional outcomes of novel multigene perturbations with GEARS</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.1.0</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/zou-group/GenePert">GenePert</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.biorxiv.org/content/10.1101/2024.10.27.620513v1">bioRxiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>GenePert: Leveraging GenePT Embeddings for Gene Perturbation Prediction</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/const-ae/linear_perturbation_prediction-Paper">linearModel</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://doi.org/10.1101/2024.09.16.613342">bioRxiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Deep learning-based predictions of gene perturbation effects do not yet outperform simple linear methods</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/bowang-lab/scGPT">scGPT</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41592-024-02201-0">Nature Methods</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scGPT: toward building a foundation model for single-cell multi-omics using generative AI</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.2.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/biomap-research/scFoundation">scFoundation</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41592-024-02305-7">Nature Methods</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Large-scale foundation model on single-cell transcriptomics</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/theislab/chemCPA">chemCPA</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://arxiv.org/abs/2204.13545">arXiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2022</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Predicting Cellular Responses to Novel Drug Perturbations at a Single-Cell Resolution</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>2.0.0</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/PancakeZoy/scouter">scouter</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://doi.org/10.1101/2024.12.06.627290">bioRxiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Scouter: Predicting Transcriptional Responses to Genetic Perturbations with LLM embeddings</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/HelloWorldLTY/scELMo">scELMo</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://arxiv.org/abs/2004.13214">bioRxiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>scELMo: Embeddings from Language Models are Good Learners for Single-cell Data Analysis</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/xCompass-AI/geneCompass">GeneCompass</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41422-024-01034-y">Cell Research</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>GeneCompass: deciphering universal gene regulatory mechanisms with a knowledge-informed cross-species foundation model</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/hliulab/cycleCDR">cycleCDR</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://doi.org/10.1093/bioinformatics/btae248">bioRxiv</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Predicting single-cell cellular responses to perturbations using cycle consistency learning</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+    <tr><td headers=" Method" class="gt_row gt_left"><span class='gt_from_md'><a href="https://github.com/Perturbation-Response-Prediction/PRnet">PRnet</a></span></td>
+<td headers="Generalization" class="gt_row gt_left"><span class='gt_from_md'>Perturbation</span></td>
+<td headers="Article" class="gt_row gt_left"><span class='gt_from_md'><a href="https://www.nature.com/articles/s41467-024-53457-1">Nature communication</a></span></td>
+<td headers="Time" class="gt_row gt_left"><span class='gt_from_md'>2024</span></td>
+<td headers="Title" class="gt_row gt_left"><span class='gt_from_md'>Predicting transcriptional responses to novel chemical perturbations using deep generative model for drug discovery</span></td>
+<td headers="Version" class="gt_row gt_left"><span class='gt_from_md'>0.0.1</span></td></tr>
+  </tbody>
+  
+  
 </table>
+</div>
 </div>
 <div id="benchmark-datasets-summary" class="section level2">
 <h2>Benchmark datasets summary</h2>
@@ -542,7 +893,7 @@ href="https://doi.org/10.6084/m9.figshare.28147883">Figshare-Perturbation</a>,
 <a href="https://doi.org/10.5281/zenodo.14607156">Zenodo-Cellular</a>
 and <a
 href="https://10.5281/zenodo.14638779">Zenodo-perturbation</a>.</p>
-<hr style="border: none; height: 1px; background-color: #D3D3D3; margin-top: 1em; margin-bottom: 1em;">
+<hr style="border: none; height: 1px; background-color: #333333; margin-top: 1em; margin-bottom: 1em;">
 <div
 style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; padding: 10px;">
 <p><a href="[https://github.com/bm2-lab/scPerturBench/](https://github.com/bm2-lab/scPerturBench/)" target="_blank" title="scPerturb" style="margin: 10px;">
