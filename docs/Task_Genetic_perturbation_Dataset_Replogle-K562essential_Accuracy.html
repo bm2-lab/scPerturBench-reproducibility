@@ -1,0 +1,3008 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Genetic perturbation Replogle-K562essential</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+mixpanel.init("45da4dcd73c9f511fc152d093652d0ec", {"api_host": "https://api-eu.mixpanel.com", batch_requests: true})</script>
+<script>mixpanel.track("Open page")</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+<div id="nav-placeholder"></div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar-content.html");
+});
+</script>
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Genetic perturbation
+Replogle-K562essential</h1>
+
+</div>
+
+
+<p>This page displays metrics for the following dataset:</p>
+<div id="fwfowipkzm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fwfowipkzm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fwfowipkzm thead, #fwfowipkzm tbody, #fwfowipkzm tfoot, #fwfowipkzm tr, #fwfowipkzm td, #fwfowipkzm th {
+  border-style: none;
+}
+
+#fwfowipkzm p {
+  margin: 0;
+  padding: 0;
+}
+
+#fwfowipkzm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fwfowipkzm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fwfowipkzm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fwfowipkzm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fwfowipkzm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fwfowipkzm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fwfowipkzm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fwfowipkzm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fwfowipkzm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fwfowipkzm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fwfowipkzm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fwfowipkzm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fwfowipkzm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fwfowipkzm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fwfowipkzm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fwfowipkzm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fwfowipkzm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fwfowipkzm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fwfowipkzm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fwfowipkzm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fwfowipkzm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fwfowipkzm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fwfowipkzm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fwfowipkzm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fwfowipkzm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fwfowipkzm .gt_left {
+  text-align: left;
+}
+
+#fwfowipkzm .gt_center {
+  text-align: center;
+}
+
+#fwfowipkzm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fwfowipkzm .gt_font_normal {
+  font-weight: normal;
+}
+
+#fwfowipkzm .gt_font_bold {
+  font-weight: bold;
+}
+
+#fwfowipkzm .gt_font_italic {
+  font-style: italic;
+}
+
+#fwfowipkzm .gt_super {
+  font-size: 65%;
+}
+
+#fwfowipkzm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fwfowipkzm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fwfowipkzm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fwfowipkzm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fwfowipkzm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fwfowipkzm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fwfowipkzm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fwfowipkzm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fwfowipkzm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Category"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Value"></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Dataset</span></td>
+<td headers="Value" class="gt_row gt_left">Replogle-K562essential</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Description</span></td>
+<td headers="Value" class="gt_row gt_left">Single genetic perturbations in K562 cell line (1,618 distinct perturbations).</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Perturbation type</span></td>
+<td headers="Value" class="gt_row gt_left">Genetic</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Combination</span></td>
+<td headers="Value" class="gt_row gt_left">No</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of perturbations</span></td>
+<td headers="Value" class="gt_row gt_left">1,618</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of cells</span></td>
+<td headers="Value" class="gt_row gt_left">263,245</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<div id="performance-top-100-degs" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Performance (Top 100
+DEGs)</h1>
+<div
+id="rank-based-results-across-cellular-contexts-see-usability-for-definition"
+class="section level2 tabset" number="1.1">
+<h2 class="tabset"><span class="header-section-number">1.1</span>
+Rank-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs" class="section level3 unnumbered">
+<h3 class="unnumbered">Common-DEGs</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-Common-DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wasserstein" class="section level3 unnumbered">
+<h3 class="unnumbered">Wasserstein</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-Wasserstein-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-RankBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div
+id="score-based-results-across-cellular-contexts-see-usability-for-definition"
+class="section level2 tabset" number="1.2">
+<h2 class="tabset"><span class="header-section-number">1.2</span>
+Score-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-1" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Common-DEGs</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-Common-DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wasserstein-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Wasserstein</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-Wasserstein-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-top100-ScoreBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="performance-all-genes" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Performance (All
+genes)</h1>
+<div
+id="rank-based-results-across-cellular-contexts-see-usability-for-definition-1"
+class="section level2 tabset" number="2.1">
+<h2 class="tabset"><span class="header-section-number">2.1</span>
+Rank-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-2" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-RankBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-2" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-RankBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-2" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-RankBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-2" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-RankBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div
+id="score-based-results-across-cellular-contexts-see-usability-for-definition-1"
+class="section level2 tabset" number="2.2">
+<h2 class="tabset"><span class="header-section-number">2.2</span>
+Score-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-3" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-ScoreBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-3" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-ScoreBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-3" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-ScoreBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-3" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Replogle-K562essential-Accuracy-all-ScoreBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="visualization-of-prediction-results"
+class="section level1 tabset tabset-dropdown tabset-fade" number="3">
+<h1 class="tabset tabset-dropdown tabset-fade"><span
+class="header-section-number">3</span> Visualization of prediction
+results</h1>
+<p><strong>Perturbation</strong></p>
+<div id="actr1a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ACTR1A</h2>
+<div id="actr1a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ACTR1A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ACTR1A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ACTR1A.png'>
+</a></p>
+</div>
+</div>
+<div id="actr8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ACTR8</h2>
+<div id="actr8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ACTR8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ACTR8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ACTR8.png'>
+</a></p>
+</div>
+</div>
+<div id="adat2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ADAT2</h2>
+<div id="adat2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ADAT2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ADAT2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ADAT2.png'>
+</a></p>
+</div>
+</div>
+<div id="ahctf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">AHCTF1</h2>
+<div id="ahctf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">AHCTF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/AHCTF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/AHCTF1.png'>
+</a></p>
+</div>
+</div>
+<div id="ahcy"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">AHCY</h2>
+<div id="ahcy-1" class="section level3 unnumbered">
+<h3 class="unnumbered">AHCY</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/AHCY.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/AHCY.png'>
+</a></p>
+</div>
+</div>
+<div id="anks6"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ANKS6</h2>
+<div id="anks6-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ANKS6</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ANKS6.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ANKS6.png'>
+</a></p>
+</div>
+</div>
+<div id="anln"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ANLN</h2>
+<div id="anln-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ANLN</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ANLN.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ANLN.png'>
+</a></p>
+</div>
+</div>
+<div id="armc6"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ARMC6</h2>
+<div id="armc6-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ARMC6</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ARMC6.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ARMC6.png'>
+</a></p>
+</div>
+</div>
+<div id="atp1a1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ATP1A1</h2>
+<div id="atp1a1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ATP1A1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATP1A1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATP1A1.png'>
+</a></p>
+</div>
+</div>
+<div id="atp6v1h"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ATP6V1H</h2>
+<div id="atp6v1h-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ATP6V1H</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATP6V1H.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATP6V1H.png'>
+</a></p>
+</div>
+</div>
+<div id="atrip"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ATRIP</h2>
+<div id="atrip-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ATRIP</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATRIP.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ATRIP.png'>
+</a></p>
+</div>
+</div>
+<div id="bcar1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BCAR1</h2>
+<div id="bcar1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BCAR1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/BCAR1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/BCAR1.png'>
+</a></p>
+</div>
+</div>
+<div id="bora"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BORA</h2>
+<div id="bora-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BORA</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/BORA.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/BORA.png'>
+</a></p>
+</div>
+</div>
+<div id="brd4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BRD4</h2>
+<div id="brd4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BRD4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/BRD4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/BRD4.png'>
+</a></p>
+</div>
+</div>
+<div id="bub1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BUB1</h2>
+<div id="bub1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BUB1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/BUB1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/BUB1.png'>
+</a></p>
+</div>
+</div>
+<div id="capzb"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CAPZB</h2>
+<div id="capzb-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CAPZB</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CAPZB.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CAPZB.png'>
+</a></p>
+</div>
+</div>
+<div id="ccdc59"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CCDC59</h2>
+<div id="ccdc59-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CCDC59</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCDC59.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCDC59.png'>
+</a></p>
+</div>
+</div>
+<div id="ccdc86"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CCDC86</h2>
+<div id="ccdc86-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CCDC86</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCDC86.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCDC86.png'>
+</a></p>
+</div>
+</div>
+<div id="cct5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CCT5</h2>
+<div id="cct5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CCT5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCT5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCT5.png'>
+</a></p>
+</div>
+</div>
+<div id="cct8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CCT8</h2>
+<div id="cct8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CCT8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCT8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CCT8.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc123"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC123</h2>
+<div id="cdc123-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC123</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC123.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC123.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc16"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC16</h2>
+<div id="cdc16-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC16</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC16.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC16.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc20"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC20</h2>
+<div id="cdc20-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC20</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC20.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC20.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc40"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC40</h2>
+<div id="cdc40-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC40</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC40.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC40.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc42"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC42</h2>
+<div id="cdc42-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC42</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC42.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC42.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc5l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC5L</h2>
+<div id="cdc5l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC5L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC5L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC5L.png'>
+</a></p>
+</div>
+</div>
+<div id="cdc73"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDC73</h2>
+<div id="cdc73-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDC73</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC73.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CDC73.png'>
+</a></p>
+</div>
+</div>
+<div id="cenpe"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CENPE</h2>
+<div id="cenpe-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CENPE</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPE.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPE.png'>
+</a></p>
+</div>
+</div>
+<div id="cenpn"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CENPN</h2>
+<div id="cenpn-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CENPN</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPN.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPN.png'>
+</a></p>
+</div>
+</div>
+<div id="cenpt"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CENPT</h2>
+<div id="cenpt-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CENPT</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPT.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CENPT.png'>
+</a></p>
+</div>
+</div>
+<div id="cep192"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEP192</h2>
+<div id="cep192-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEP192</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CEP192.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CEP192.png'>
+</a></p>
+</div>
+</div>
+<div id="cep85"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEP85</h2>
+<div id="cep85-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEP85</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CEP85.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CEP85.png'>
+</a></p>
+</div>
+</div>
+<div id="chchd4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CHCHD4</h2>
+<div id="chchd4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CHCHD4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CHCHD4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CHCHD4.png'>
+</a></p>
+</div>
+</div>
+<div id="chek1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CHEK1</h2>
+<div id="chek1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CHEK1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CHEK1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CHEK1.png'>
+</a></p>
+</div>
+</div>
+<div id="ciapin1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CIAPIN1</h2>
+<div id="ciapin1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CIAPIN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CIAPIN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CIAPIN1.png'>
+</a></p>
+</div>
+</div>
+<div id="clasrp"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CLASRP</h2>
+<div id="clasrp-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CLASRP</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CLASRP.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CLASRP.png'>
+</a></p>
+</div>
+</div>
+<div id="cmtr1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CMTR1</h2>
+<div id="cmtr1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CMTR1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CMTR1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CMTR1.png'>
+</a></p>
+</div>
+</div>
+<div id="cnot1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNOT1</h2>
+<div id="cnot1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNOT1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CNOT1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CNOT1.png'>
+</a></p>
+</div>
+</div>
+<div id="cnot2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNOT2</h2>
+<div id="cnot2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNOT2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CNOT2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CNOT2.png'>
+</a></p>
+</div>
+</div>
+<div id="copb1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COPB1</h2>
+<div id="copb1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COPB1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/COPB1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/COPB1.png'>
+</a></p>
+</div>
+</div>
+<div id="copg1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COPG1</h2>
+<div id="copg1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COPG1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/COPG1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/COPG1.png'>
+</a></p>
+</div>
+</div>
+<div id="coq2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COQ2</h2>
+<div id="coq2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COQ2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/COQ2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/COQ2.png'>
+</a></p>
+</div>
+</div>
+<div id="cox17"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COX17</h2>
+<div id="cox17-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COX17</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/COX17.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/COX17.png'>
+</a></p>
+</div>
+</div>
+<div id="cox7c"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COX7C</h2>
+<div id="cox7c-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COX7C</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/COX7C.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/COX7C.png'>
+</a></p>
+</div>
+</div>
+<div id="cpsf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CPSF1</h2>
+<div id="cpsf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CPSF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CPSF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CPSF1.png'>
+</a></p>
+</div>
+</div>
+<div id="cse1l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CSE1L</h2>
+<div id="cse1l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CSE1L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CSE1L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CSE1L.png'>
+</a></p>
+</div>
+</div>
+<div id="csnk1a1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CSNK1A1</h2>
+<div id="csnk1a1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CSNK1A1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CSNK1A1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CSNK1A1.png'>
+</a></p>
+</div>
+</div>
+<div id="cul3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CUL3</h2>
+<div id="cul3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CUL3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CUL3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CUL3.png'>
+</a></p>
+</div>
+</div>
+<div id="cwf19l2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CWF19L2</h2>
+<div id="cwf19l2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CWF19L2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CWF19L2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CWF19L2.png'>
+</a></p>
+</div>
+</div>
+<div id="cycs"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CYCS</h2>
+<div id="cycs-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CYCS</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/CYCS.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/CYCS.png'>
+</a></p>
+</div>
+</div>
+<div id="dctn2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DCTN2</h2>
+<div id="dctn2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DCTN2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DCTN2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DCTN2.png'>
+</a></p>
+</div>
+</div>
+<div id="dctn3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DCTN3</h2>
+<div id="dctn3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DCTN3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DCTN3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DCTN3.png'>
+</a></p>
+</div>
+</div>
+<div id="ddx19a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DDX19A</h2>
+<div id="ddx19a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DDX19A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DDX19A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DDX19A.png'>
+</a></p>
+</div>
+</div>
+<div id="dhx16"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DHX16</h2>
+<div id="dhx16-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DHX16</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX16.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX16.png'>
+</a></p>
+</div>
+</div>
+<div id="dhx37"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DHX37</h2>
+<div id="dhx37-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DHX37</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX37.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX37.png'>
+</a></p>
+</div>
+</div>
+<div id="dhx8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DHX8</h2>
+<div id="dhx8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DHX8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DHX8.png'>
+</a></p>
+</div>
+</div>
+<div id="dicer1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DICER1</h2>
+<div id="dicer1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DICER1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DICER1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DICER1.png'>
+</a></p>
+</div>
+</div>
+<div id="dnaja1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DNAJA1</h2>
+<div id="dnaja1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DNAJA1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DNAJA1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DNAJA1.png'>
+</a></p>
+</div>
+</div>
+<div id="dnajc8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DNAJC8</h2>
+<div id="dnajc8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DNAJC8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DNAJC8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DNAJC8.png'>
+</a></p>
+</div>
+</div>
+<div id="dph3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DPH3</h2>
+<div id="dph3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DPH3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/DPH3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/DPH3.png'>
+</a></p>
+</div>
+</div>
+<div id="edc4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EDC4</h2>
+<div id="edc4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EDC4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EDC4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EDC4.png'>
+</a></p>
+</div>
+</div>
+<div id="eif2s1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EIF2S1</h2>
+<div id="eif2s1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EIF2S1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF2S1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF2S1.png'>
+</a></p>
+</div>
+</div>
+<div id="eif3g"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EIF3G</h2>
+<div id="eif3g-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EIF3G</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF3G.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF3G.png'>
+</a></p>
+</div>
+</div>
+<div id="eif4g2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EIF4G2</h2>
+<div id="eif4g2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EIF4G2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF4G2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EIF4G2.png'>
+</a></p>
+</div>
+</div>
+<div id="elp2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ELP2</h2>
+<div id="elp2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ELP2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ELP2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ELP2.png'>
+</a></p>
+</div>
+</div>
+<div id="emc7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EMC7</h2>
+<div id="emc7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EMC7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EMC7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EMC7.png'>
+</a></p>
+</div>
+</div>
+<div id="esf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ESF1</h2>
+<div id="esf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ESF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ESF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ESF1.png'>
+</a></p>
+</div>
+</div>
+<div id="exoc3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EXOC3</h2>
+<div id="exoc3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EXOC3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOC3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOC3.png'>
+</a></p>
+</div>
+</div>
+<div id="exosc1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EXOSC1</h2>
+<div id="exosc1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EXOSC1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC1.png'>
+</a></p>
+</div>
+</div>
+<div id="exosc3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EXOSC3</h2>
+<div id="exosc3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EXOSC3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC3.png'>
+</a></p>
+</div>
+</div>
+<div id="exosc4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EXOSC4</h2>
+<div id="exosc4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EXOSC4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC4.png'>
+</a></p>
+</div>
+</div>
+<div id="exosc8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">EXOSC8</h2>
+<div id="exosc8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">EXOSC8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/EXOSC8.png'>
+</a></p>
+</div>
+</div>
+<div id="fam32a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FAM32A</h2>
+<div id="fam32a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FAM32A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/FAM32A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/FAM32A.png'>
+</a></p>
+</div>
+</div>
+<div id="fen1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FEN1</h2>
+<div id="fen1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FEN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/FEN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/FEN1.png'>
+</a></p>
+</div>
+</div>
+<div id="gabpa"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GABPA</h2>
+<div id="gabpa-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GABPA</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GABPA.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GABPA.png'>
+</a></p>
+</div>
+</div>
+<div id="gapdh"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GAPDH</h2>
+<div id="gapdh-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GAPDH</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GAPDH.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GAPDH.png'>
+</a></p>
+</div>
+</div>
+<div id="gemin4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GEMIN4</h2>
+<div id="gemin4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GEMIN4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GEMIN4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GEMIN4.png'>
+</a></p>
+</div>
+</div>
+<div id="gfm1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GFM1</h2>
+<div id="gfm1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GFM1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GFM1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GFM1.png'>
+</a></p>
+</div>
+</div>
+<div id="ggps1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GGPS1</h2>
+<div id="ggps1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GGPS1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GGPS1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GGPS1.png'>
+</a></p>
+</div>
+</div>
+<div id="git2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GIT2</h2>
+<div id="git2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GIT2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GIT2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GIT2.png'>
+</a></p>
+</div>
+</div>
+<div id="gli4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GLI4</h2>
+<div id="gli4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GLI4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GLI4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GLI4.png'>
+</a></p>
+</div>
+</div>
+<div id="glrx5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GLRX5</h2>
+<div id="glrx5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GLRX5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GLRX5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GLRX5.png'>
+</a></p>
+</div>
+</div>
+<div id="gnl3l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GNL3L</h2>
+<div id="gnl3l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GNL3L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GNL3L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GNL3L.png'>
+</a></p>
+</div>
+</div>
+<div id="gon4l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GON4L</h2>
+<div id="gon4l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GON4L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GON4L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GON4L.png'>
+</a></p>
+</div>
+</div>
+<div id="gosr2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GOSR2</h2>
+<div id="gosr2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GOSR2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GOSR2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GOSR2.png'>
+</a></p>
+</div>
+</div>
+<div id="gpkow"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GPKOW</h2>
+<div id="gpkow-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GPKOW</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GPKOW.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GPKOW.png'>
+</a></p>
+</div>
+</div>
+<div id="grpel1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GRPEL1</h2>
+<div id="grpel1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GRPEL1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GRPEL1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GRPEL1.png'>
+</a></p>
+</div>
+</div>
+<div id="grwd1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GRWD1</h2>
+<div id="grwd1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GRWD1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GRWD1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GRWD1.png'>
+</a></p>
+</div>
+</div>
+<div id="gtf2h2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GTF2H2</h2>
+<div id="gtf2h2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GTF2H2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GTF2H2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GTF2H2.png'>
+</a></p>
+</div>
+</div>
+<div id="gtf3a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GTF3A</h2>
+<div id="gtf3a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GTF3A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GTF3A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GTF3A.png'>
+</a></p>
+</div>
+</div>
+<div id="gucd1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">GUCD1</h2>
+<div id="gucd1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">GUCD1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/GUCD1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/GUCD1.png'>
+</a></p>
+</div>
+</div>
+<div id="hbs1l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HBS1L</h2>
+<div id="hbs1l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HBS1L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HBS1L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HBS1L.png'>
+</a></p>
+</div>
+</div>
+<div id="hdac7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HDAC7</h2>
+<div id="hdac7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HDAC7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HDAC7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HDAC7.png'>
+</a></p>
+</div>
+</div>
+<div id="hira"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HIRA</h2>
+<div id="hira-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HIRA</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HIRA.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HIRA.png'>
+</a></p>
+</div>
+</div>
+<div id="hmga1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HMGA1</h2>
+<div id="hmga1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HMGA1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HMGA1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HMGA1.png'>
+</a></p>
+</div>
+</div>
+<div id="hnrnpr"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HNRNPR</h2>
+<div id="hnrnpr-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HNRNPR</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HNRNPR.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HNRNPR.png'>
+</a></p>
+</div>
+</div>
+<div id="hoxc10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HOXC10</h2>
+<div id="hoxc10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HOXC10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HOXC10.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HOXC10.png'>
+</a></p>
+</div>
+</div>
+<div id="hspa5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HSPA5</h2>
+<div id="hspa5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HSPA5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/HSPA5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/HSPA5.png'>
+</a></p>
+</div>
+</div>
+<div id="iars2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">IARS2</h2>
+<div id="iars2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">IARS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/IARS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/IARS2.png'>
+</a></p>
+</div>
+</div>
+<div id="igbp1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">IGBP1</h2>
+<div id="igbp1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">IGBP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/IGBP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/IGBP1.png'>
+</a></p>
+</div>
+</div>
+<div id="ilf3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ILF3</h2>
+<div id="ilf3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ILF3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ILF3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ILF3.png'>
+</a></p>
+</div>
+</div>
+<div id="ipo7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">IPO7</h2>
+<div id="ipo7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">IPO7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/IPO7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/IPO7.png'>
+</a></p>
+</div>
+</div>
+<div id="isca2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ISCA2</h2>
+<div id="isca2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ISCA2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ISCA2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ISCA2.png'>
+</a></p>
+</div>
+</div>
+<div id="isg20l2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ISG20L2</h2>
+<div id="isg20l2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ISG20L2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ISG20L2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ISG20L2.png'>
+</a></p>
+</div>
+</div>
+<div id="kansl2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KANSL2</h2>
+<div id="kansl2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KANSL2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/KANSL2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/KANSL2.png'>
+</a></p>
+</div>
+</div>
+<div id="kif18b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KIF18B</h2>
+<div id="kif18b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KIF18B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/KIF18B.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/KIF18B.png'>
+</a></p>
+</div>
+</div>
+<div id="kif4a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KIF4A</h2>
+<div id="kif4a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KIF4A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/KIF4A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/KIF4A.png'>
+</a></p>
+</div>
+</div>
+<div id="kpna6"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KPNA6</h2>
+<div id="kpna6-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KPNA6</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/KPNA6.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/KPNA6.png'>
+</a></p>
+</div>
+</div>
+<div id="krt8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KRT8</h2>
+<div id="krt8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KRT8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/KRT8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/KRT8.png'>
+</a></p>
+</div>
+</div>
+<div id="lamtor4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">LAMTOR4</h2>
+<div id="lamtor4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LAMTOR4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/LAMTOR4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/LAMTOR4.png'>
+</a></p>
+</div>
+</div>
+<div id="lin54"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">LIN54</h2>
+<div id="lin54-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LIN54</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/LIN54.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/LIN54.png'>
+</a></p>
+</div>
+</div>
+<div id="lsm10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">LSM10</h2>
+<div id="lsm10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LSM10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/LSM10.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/LSM10.png'>
+</a></p>
+</div>
+</div>
+<div id="lsm3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">LSM3</h2>
+<div id="lsm3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LSM3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/LSM3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/LSM3.png'>
+</a></p>
+</div>
+</div>
+<div id="ltv1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">LTV1</h2>
+<div id="ltv1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">LTV1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/LTV1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/LTV1.png'>
+</a></p>
+</div>
+</div>
+<div id="mad2l1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MAD2L1</h2>
+<div id="mad2l1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MAD2L1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAD2L1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAD2L1.png'>
+</a></p>
+</div>
+</div>
+<div id="manf"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MANF</h2>
+<div id="manf-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MANF</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MANF.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MANF.png'>
+</a></p>
+</div>
+</div>
+<div id="mat2a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MAT2A</h2>
+<div id="mat2a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MAT2A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAT2A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAT2A.png'>
+</a></p>
+</div>
+</div>
+<div id="max"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MAX</h2>
+<div id="max-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MAX</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAX.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MAX.png'>
+</a></p>
+</div>
+</div>
+<div id="mbtps1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MBTPS1</h2>
+<div id="mbtps1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MBTPS1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MBTPS1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MBTPS1.png'>
+</a></p>
+</div>
+</div>
+<div id="mcm10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MCM10</h2>
+<div id="mcm10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MCM10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM10.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM10.png'>
+</a></p>
+</div>
+</div>
+<div id="mcm3ap"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MCM3AP</h2>
+<div id="mcm3ap-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MCM3AP</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM3AP.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM3AP.png'>
+</a></p>
+</div>
+</div>
+<div id="mcm7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MCM7</h2>
+<div id="mcm7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MCM7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MCM7.png'>
+</a></p>
+</div>
+</div>
+<div id="med10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MED10</h2>
+<div id="med10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MED10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED10.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED10.png'>
+</a></p>
+</div>
+</div>
+<div id="med20"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MED20</h2>
+<div id="med20-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MED20</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED20.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED20.png'>
+</a></p>
+</div>
+</div>
+<div id="med6"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MED6</h2>
+<div id="med6-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MED6</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED6.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED6.png'>
+</a></p>
+</div>
+</div>
+<div id="med7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MED7</h2>
+<div id="med7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MED7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MED7.png'>
+</a></p>
+</div>
+</div>
+<div id="mettl3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">METTL3</h2>
+<div id="mettl3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">METTL3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/METTL3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/METTL3.png'>
+</a></p>
+</div>
+</div>
+<div id="mfap1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MFAP1</h2>
+<div id="mfap1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MFAP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MFAP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MFAP1.png'>
+</a></p>
+</div>
+</div>
+<div id="mocs3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MOCS3</h2>
+<div id="mocs3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MOCS3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MOCS3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MOCS3.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl16"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL16</h2>
+<div id="mrpl16-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL16</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL16.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL16.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl18"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL18</h2>
+<div id="mrpl18-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL18</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL18.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL18.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl19"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL19</h2>
+<div id="mrpl19-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL19</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL19.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL19.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl27"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL27</h2>
+<div id="mrpl27-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL27</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL27.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL27.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl28"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL28</h2>
+<div id="mrpl28-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL28</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL28.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL28.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl41"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL41</h2>
+<div id="mrpl41-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL41</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL41.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL41.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl54"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL54</h2>
+<div id="mrpl54-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL54</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL54.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL54.png'>
+</a></p>
+</div>
+</div>
+<div id="mrpl9"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPL9</h2>
+<div id="mrpl9-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPL9</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL9.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPL9.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS10</h2>
+<div id="mrps10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS10.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS10.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS12</h2>
+<div id="mrps12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS12.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS12.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps21"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS21</h2>
+<div id="mrps21-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS21</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS21.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS21.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps26"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS26</h2>
+<div id="mrps26-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS26</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS26.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS26.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps27"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS27</h2>
+<div id="mrps27-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS27</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS27.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS27.png'>
+</a></p>
+</div>
+</div>
+<div id="mrps35"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MRPS35</h2>
+<div id="mrps35-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MRPS35</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS35.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MRPS35.png'>
+</a></p>
+</div>
+</div>
+<div id="msto1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MSTO1</h2>
+<div id="msto1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MSTO1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MSTO1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MSTO1.png'>
+</a></p>
+</div>
+</div>
+<div id="mt2a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MT2A</h2>
+<div id="mt2a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MT2A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MT2A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MT2A.png'>
+</a></p>
+</div>
+</div>
+<div id="myc"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MYC</h2>
+<div id="myc-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MYC</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MYC.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MYC.png'>
+</a></p>
+</div>
+</div>
+<div id="mzf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MZF1</h2>
+<div id="mzf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MZF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/MZF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/MZF1.png'>
+</a></p>
+</div>
+</div>
+<div id="n6amt1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">N6AMT1</h2>
+<div id="n6amt1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">N6AMT1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/N6AMT1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/N6AMT1.png'>
+</a></p>
+</div>
+</div>
+<div id="naa50"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NAA50</h2>
+<div id="naa50-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NAA50</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NAA50.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NAA50.png'>
+</a></p>
+</div>
+</div>
+<div id="ndufa8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NDUFA8</h2>
+<div id="ndufa8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NDUFA8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFA8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFA8.png'>
+</a></p>
+</div>
+</div>
+<div id="ndufb3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NDUFB3</h2>
+<div id="ndufb3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NDUFB3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFB3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFB3.png'>
+</a></p>
+</div>
+</div>
+<div id="ndufb8"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NDUFB8</h2>
+<div id="ndufb8-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NDUFB8</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFB8.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NDUFB8.png'>
+</a></p>
+</div>
+</div>
+<div id="nhp2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NHP2</h2>
+<div id="nhp2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NHP2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NHP2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NHP2.png'>
+</a></p>
+</div>
+</div>
+<div id="nle1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NLE1</h2>
+<div id="nle1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NLE1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NLE1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NLE1.png'>
+</a></p>
+</div>
+</div>
+<div id="nploc4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NPLOC4</h2>
+<div id="nploc4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NPLOC4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NPLOC4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NPLOC4.png'>
+</a></p>
+</div>
+</div>
+<div id="nrbp1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NRBP1</h2>
+<div id="nrbp1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NRBP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NRBP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NRBP1.png'>
+</a></p>
+</div>
+</div>
+<div id="nsmce1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NSMCE1</h2>
+<div id="nsmce1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NSMCE1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NSMCE1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NSMCE1.png'>
+</a></p>
+</div>
+</div>
+<div id="nudc"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NUDC</h2>
+<div id="nudc-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NUDC</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUDC.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUDC.png'>
+</a></p>
+</div>
+</div>
+<div id="nufip1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NUFIP1</h2>
+<div id="nufip1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NUFIP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUFIP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUFIP1.png'>
+</a></p>
+</div>
+</div>
+<div id="nup107"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NUP107</h2>
+<div id="nup107-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NUP107</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUP107.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/NUP107.png'>
+</a></p>
+</div>
+</div>
+<div id="ogfod1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">OGFOD1</h2>
+<div id="ogfod1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">OGFOD1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/OGFOD1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/OGFOD1.png'>
+</a></p>
+</div>
+</div>
+<div id="orc3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ORC3</h2>
+<div id="orc3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ORC3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ORC3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ORC3.png'>
+</a></p>
+</div>
+</div>
+<div id="orc5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ORC5</h2>
+<div id="orc5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ORC5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/ORC5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/ORC5.png'>
+</a></p>
+</div>
+</div>
+<div id="paf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PAF1</h2>
+<div id="paf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PAF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAF1.png'>
+</a></p>
+</div>
+</div>
+<div id="pafah1b1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PAFAH1B1</h2>
+<div id="pafah1b1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PAFAH1B1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAFAH1B1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAFAH1B1.png'>
+</a></p>
+</div>
+</div>
+<div id="parn"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PARN</h2>
+<div id="parn-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PARN</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PARN.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PARN.png'>
+</a></p>
+</div>
+</div>
+<div id="pars2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PARS2</h2>
+<div id="pars2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PARS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PARS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PARS2.png'>
+</a></p>
+</div>
+</div>
+<div id="paxbp1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PAXBP1</h2>
+<div id="paxbp1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PAXBP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAXBP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PAXBP1.png'>
+</a></p>
+</div>
+</div>
+<div id="pcna"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PCNA</h2>
+<div id="pcna-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PCNA</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PCNA.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PCNA.png'>
+</a></p>
+</div>
+</div>
+<div id="pdcd7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PDCD7</h2>
+<div id="pdcd7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PDCD7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PDCD7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PDCD7.png'>
+</a></p>
+</div>
+</div>
+<div id="pes1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PES1</h2>
+<div id="pes1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PES1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PES1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PES1.png'>
+</a></p>
+</div>
+</div>
+<div id="pfdn5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PFDN5</h2>
+<div id="pfdn5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PFDN5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PFDN5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PFDN5.png'>
+</a></p>
+</div>
+</div>
+<div id="pfn1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PFN1</h2>
+<div id="pfn1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PFN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PFN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PFN1.png'>
+</a></p>
+</div>
+</div>
+<div id="pgpep1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PGPEP1</h2>
+<div id="pgpep1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PGPEP1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PGPEP1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PGPEP1.png'>
+</a></p>
+</div>
+</div>
+<div id="pgs1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PGS1</h2>
+<div id="pgs1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PGS1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PGS1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PGS1.png'>
+</a></p>
+</div>
+</div>
+<div id="phf12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PHF12</h2>
+<div id="phf12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PHF12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PHF12.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PHF12.png'>
+</a></p>
+</div>
+</div>
+<div id="pnisr"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PNISR</h2>
+<div id="pnisr-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PNISR</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PNISR.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PNISR.png'>
+</a></p>
+</div>
+</div>
+<div id="pola1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POLA1</h2>
+<div id="pola1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POLA1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLA1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLA1.png'>
+</a></p>
+</div>
+</div>
+<div id="polr2e"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POLR2E</h2>
+<div id="polr2e-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POLR2E</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR2E.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR2E.png'>
+</a></p>
+</div>
+</div>
+<div id="polr2l"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POLR2L</h2>
+<div id="polr2l-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POLR2L</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR2L.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR2L.png'>
+</a></p>
+</div>
+</div>
+<div id="polr3h"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POLR3H</h2>
+<div id="polr3h-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POLR3H</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR3H.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POLR3H.png'>
+</a></p>
+</div>
+</div>
+<div id="pop4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POP4</h2>
+<div id="pop4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POP4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POP4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POP4.png'>
+</a></p>
+</div>
+</div>
+<div id="pop5"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">POP5</h2>
+<div id="pop5-1" class="section level3 unnumbered">
+<h3 class="unnumbered">POP5</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/POP5.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/POP5.png'>
+</a></p>
+</div>
+</div>
+<div id="ppa1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PPA1</h2>
+<div id="ppa1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PPA1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPA1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPA1.png'>
+</a></p>
+</div>
+</div>
+<div id="ppil2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PPIL2</h2>
+<div id="ppil2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PPIL2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPIL2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPIL2.png'>
+</a></p>
+</div>
+</div>
+<div id="ppil4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PPIL4</h2>
+<div id="ppil4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PPIL4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPIL4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPIL4.png'>
+</a></p>
+</div>
+</div>
+<div id="ppme1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PPME1</h2>
+<div id="ppme1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PPME1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPME1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPME1.png'>
+</a></p>
+</div>
+</div>
+<div id="ppp1r2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PPP1R2</h2>
+<div id="ppp1r2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PPP1R2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPP1R2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PPP1R2.png'>
+</a></p>
+</div>
+</div>
+<div id="prpf18"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PRPF18</h2>
+<div id="prpf18-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PRPF18</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF18.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF18.png'>
+</a></p>
+</div>
+</div>
+<div id="prpf3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PRPF3</h2>
+<div id="prpf3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PRPF3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF3.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF3.png'>
+</a></p>
+</div>
+</div>
+<div id="prpf4"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PRPF4</h2>
+<div id="prpf4-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PRPF4</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF4.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PRPF4.png'>
+</a></p>
+</div>
+</div>
+<div id="psmc1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PSMC1</h2>
+<div id="psmc1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PSMC1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMC1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMC1.png'>
+</a></p>
+</div>
+</div>
+<div id="psmd12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PSMD12</h2>
+<div id="psmd12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PSMD12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMD12.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMD12.png'>
+</a></p>
+</div>
+</div>
+<div id="psmd7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PSMD7</h2>
+<div id="psmd7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PSMD7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMD7.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSMD7.png'>
+</a></p>
+</div>
+</div>
+<div id="psme2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PSME2</h2>
+<div id="psme2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PSME2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSME2.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSME2.png'>
+</a></p>
+</div>
+</div>
+<div id="pstk"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PSTK</h2>
+<div id="pstk-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PSTK</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSTK.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PSTK.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn23"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN23</h2>
+<div id="ptpn23-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN23</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PTPN23.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PTPN23.png'>
+</a></p>
+</div>
+</div>
+<div id="pxn"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PXN</h2>
+<div id="pxn-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PXN</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/PXN.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/PXN.png'>
+</a></p>
+</div>
+</div>
+<div id="qrsl1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">QRSL1</h2>
+<div id="qrsl1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">QRSL1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/QRSL1.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/QRSL1.png'>
+</a></p>
+</div>
+</div>
+<div id="rab6a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">RAB6A</h2>
+<div id="rab6a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">RAB6A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Replogle-K562essential/RAB6A.png'>
+<img src='figures/prediction/Genetic_perturbation/Replogle-K562essential/RAB6A.png'>
+</a></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

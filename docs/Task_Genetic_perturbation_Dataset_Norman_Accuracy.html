@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Genetic perturbation Norman</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+mixpanel.init("45da4dcd73c9f511fc152d093652d0ec", {"api_host": "https://api-eu.mixpanel.com", batch_requests: true})</script>
+<script>mixpanel.track("Open page")</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+<div id="nav-placeholder"></div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar-content.html");
+});
+</script>
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Genetic perturbation Norman</h1>
+
+</div>
+
+
+<p>This page displays metrics for the following dataset:</p>
+<div id="mdtsfvixhr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mdtsfvixhr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mdtsfvixhr thead, #mdtsfvixhr tbody, #mdtsfvixhr tfoot, #mdtsfvixhr tr, #mdtsfvixhr td, #mdtsfvixhr th {
+  border-style: none;
+}
+
+#mdtsfvixhr p {
+  margin: 0;
+  padding: 0;
+}
+
+#mdtsfvixhr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mdtsfvixhr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mdtsfvixhr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mdtsfvixhr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mdtsfvixhr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mdtsfvixhr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mdtsfvixhr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mdtsfvixhr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mdtsfvixhr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mdtsfvixhr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mdtsfvixhr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mdtsfvixhr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mdtsfvixhr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mdtsfvixhr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mdtsfvixhr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mdtsfvixhr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mdtsfvixhr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mdtsfvixhr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mdtsfvixhr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mdtsfvixhr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mdtsfvixhr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mdtsfvixhr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mdtsfvixhr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mdtsfvixhr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mdtsfvixhr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mdtsfvixhr .gt_left {
+  text-align: left;
+}
+
+#mdtsfvixhr .gt_center {
+  text-align: center;
+}
+
+#mdtsfvixhr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mdtsfvixhr .gt_font_normal {
+  font-weight: normal;
+}
+
+#mdtsfvixhr .gt_font_bold {
+  font-weight: bold;
+}
+
+#mdtsfvixhr .gt_font_italic {
+  font-style: italic;
+}
+
+#mdtsfvixhr .gt_super {
+  font-size: 65%;
+}
+
+#mdtsfvixhr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mdtsfvixhr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mdtsfvixhr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mdtsfvixhr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mdtsfvixhr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mdtsfvixhr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mdtsfvixhr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mdtsfvixhr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mdtsfvixhr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Category"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Value"></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Dataset</span></td>
+<td headers="Value" class="gt_row gt_left">Norman</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Description</span></td>
+<td headers="Value" class="gt_row gt_left">Combined genetic perturbations (227 distinct perturbation combinations).</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Perturbation type</span></td>
+<td headers="Value" class="gt_row gt_left">Genetic</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>Combination</span></td>
+<td headers="Value" class="gt_row gt_left">Yes</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of perturbations</span></td>
+<td headers="Value" class="gt_row gt_left">227</td></tr>
+    <tr><td headers="Category" class="gt_row gt_left"><span class='gt_from_md'>No. of cells</span></td>
+<td headers="Value" class="gt_row gt_left">96,994</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<div id="performance-top-100-degs" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Performance (Top 100
+DEGs)</h1>
+<div
+id="rank-based-results-across-cellular-contexts-see-usability-for-definition"
+class="section level2 tabset" number="1.1">
+<h2 class="tabset"><span class="header-section-number">1.1</span>
+Rank-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs" class="section level3 unnumbered">
+<h3 class="unnumbered">Common-DEGs</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-Common-DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wasserstein" class="section level3 unnumbered">
+<h3 class="unnumbered">Wasserstein</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-Wasserstein-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-RankBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div
+id="score-based-results-across-cellular-contexts-see-usability-for-definition"
+class="section level2 tabset" number="1.2">
+<h2 class="tabset"><span class="header-section-number">1.2</span>
+Score-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-1" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="common-degs-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Common-DEGs</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-Common-DEGs-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="wasserstein-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Wasserstein</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-Wasserstein-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-top100-ScoreBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="performance-all-genes" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Performance (All
+genes)</h1>
+<div
+id="rank-based-results-across-cellular-contexts-see-usability-for-definition-1"
+class="section level2 tabset" number="2.1">
+<h2 class="tabset"><span class="header-section-number">2.1</span>
+Rank-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-2" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-RankBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-2" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-RankBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-2" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-RankBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-2" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-RankBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div
+id="score-based-results-across-cellular-contexts-see-usability-for-definition-1"
+class="section level2 tabset" number="2.2">
+<h2 class="tabset"><span class="header-section-number">2.2</span>
+Score-based results across cellular contexts (see Usability for
+definition)</h2>
+<div id="pcc-delta-3" class="section level3 unnumbered">
+<h3 class="unnumbered">PCC-delta</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-ScoreBased-PCC-delta-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="e-distance-3" class="section level3 unnumbered">
+<h3 class="unnumbered">E-distance</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-ScoreBased-E-distance-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mse-3" class="section level3 unnumbered">
+<h3 class="unnumbered">MSE</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-ScoreBased-MSE-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kl-divergence-3" class="section level3 unnumbered">
+<h3 class="unnumbered">KL-divergence</h3>
+<p><img src="figures/Genetic_perturbation-Norman-Accuracy-all-ScoreBased-KL-divergence-1.png" width="1200" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="visualization-of-prediction-results"
+class="section level1 tabset tabset-dropdown tabset-fade" number="3">
+<h1 class="tabset tabset-dropdown tabset-fade"><span
+class="header-section-number">3</span> Visualization of prediction
+results</h1>
+<p><strong>Perturbation</strong></p>
+<div id="ahr-fev"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">AHR-FEV</h2>
+<div id="ahr-fev-1" class="section level3 unnumbered">
+<h3 class="unnumbered">AHR-FEV</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/AHR-FEV.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/AHR-FEV.png'>
+</a></p>
+</div>
+</div>
+<div id="ahr-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">AHR-KLF1</h2>
+<div id="ahr-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">AHR-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/AHR-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/AHR-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="arid1a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ARID1A</h2>
+<div id="arid1a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ARID1A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ARID1A.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ARID1A.png'>
+</a></p>
+</div>
+</div>
+<div id="bak1-bcl2l11"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BAK1-BCL2L11</h2>
+<div id="bak1-bcl2l11-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BAK1-BCL2L11</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BAK1-BCL2L11.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BAK1-BCL2L11.png'>
+</a></p>
+</div>
+</div>
+<div id="bak1-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BAK1-KLF1</h2>
+<div id="bak1-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BAK1-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BAK1-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BAK1-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="bak1-tmsb4x"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BAK1-TMSB4X</h2>
+<div id="bak1-tmsb4x-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BAK1-TMSB4X</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BAK1-TMSB4X.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BAK1-TMSB4X.png'>
+</a></p>
+</div>
+</div>
+<div id="bcl2l11"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BCL2L11</h2>
+<div id="bcl2l11-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BCL2L11</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BCL2L11.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BCL2L11.png'>
+</a></p>
+</div>
+</div>
+<div id="bcl2l11-tgfbr2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">BCL2L11-TGFBR2</h2>
+<div id="bcl2l11-tgfbr2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BCL2L11-TGFBR2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BCL2L11-TGFBR2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BCL2L11-TGFBR2.png'>
+</a></p>
+</div>
+</div>
+<div id="bcorl1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BCORL1</h2>
+<div id="bcorl1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BCORL1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BCORL1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BCORL1.png'>
+</a></p>
+</div>
+</div>
+<div id="bpgm-samd1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">BPGM-SAMD1</h2>
+<div id="bpgm-samd1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">BPGM-SAMD1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/BPGM-SAMD1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/BPGM-SAMD1.png'>
+</a></p>
+</div>
+</div>
+<div id="cbfa2t3-fev"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBFA2T3-FEV</h2>
+<div id="cbfa2t3-fev-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBFA2T3-FEV</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBFA2T3-FEV.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBFA2T3-FEV.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL</h2>
+<div id="cbl-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-cnn1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-CNN1</h2>
+<div id="cbl-cnn1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-CNN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-CNN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-CNN1.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-PTPN12</h2>
+<div id="cbl-ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-ptpn9"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-PTPN9</h2>
+<div id="cbl-ptpn9-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-PTPN9</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-PTPN9.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-PTPN9.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-tgfbr2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-TGFBR2</h2>
+<div id="cbl-tgfbr2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-TGFBR2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-TGFBR2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-TGFBR2.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-ubash3a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-UBASH3A</h2>
+<div id="cbl-ubash3a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-UBASH3A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-UBASH3A.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-UBASH3A.png'>
+</a></p>
+</div>
+</div>
+<div id="cbl-ubash3b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CBL-UBASH3B</h2>
+<div id="cbl-ubash3b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CBL-UBASH3B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CBL-UBASH3B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CBL-UBASH3B.png'>
+</a></p>
+</div>
+</div>
+<div id="cdkn1a-cdkn1b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">CDKN1A-CDKN1B</h2>
+<div id="cdkn1a-cdkn1b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDKN1A-CDKN1B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CDKN1A-CDKN1B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CDKN1A-CDKN1B.png'>
+</a></p>
+</div>
+</div>
+<div id="cdkn1a-cdkn1c"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">CDKN1A-CDKN1C</h2>
+<div id="cdkn1a-cdkn1c-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDKN1A-CDKN1C</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CDKN1A-CDKN1C.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CDKN1A-CDKN1C.png'>
+</a></p>
+</div>
+</div>
+<div id="cdkn1b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDKN1B</h2>
+<div id="cdkn1b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDKN1B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CDKN1B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CDKN1B.png'>
+</a></p>
+</div>
+</div>
+<div id="cdkn1b-cdkn1c"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">CDKN1B-CDKN1C</h2>
+<div id="cdkn1b-cdkn1c-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDKN1B-CDKN1C</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CDKN1B-CDKN1C.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CDKN1B-CDKN1C.png'>
+</a></p>
+</div>
+</div>
+<div id="cdkn1c"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CDKN1C</h2>
+<div id="cdkn1c-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CDKN1C</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CDKN1C.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CDKN1C.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpa-cebpb"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPA-CEBPB</h2>
+<div id="cebpa-cebpb-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPA-CEBPB</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPA-CEBPB.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPA-CEBPB.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpa-cebpe"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPA-CEBPE</h2>
+<div id="cebpa-cebpe-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPA-CEBPE</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPA-CEBPE.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPA-CEBPE.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpa-jun"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPA-JUN</h2>
+<div id="cebpa-jun-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPA-JUN</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPA-JUN.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPA-JUN.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpa-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPA-KLF1</h2>
+<div id="cebpa-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPA-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPA-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPA-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpb-cebpe"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPB-CEBPE</h2>
+<div id="cebpb-cebpe-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPB-CEBPE</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPB-CEBPE.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPB-CEBPE.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpb-lyl1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPB-LYL1</h2>
+<div id="cebpb-lyl1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPB-LYL1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPB-LYL1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPB-LYL1.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpb-ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPB-PTPN12</h2>
+<div id="cebpb-ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPB-PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPB-PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPB-PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-cnn1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-CNN1</h2>
+<div id="cebpe-cnn1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-CNN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-CNN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-CNN1.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-ets2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-ETS2</h2>
+<div id="cebpe-ets2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-ETS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-ETS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-ETS2.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-fosb"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-FOSB</h2>
+<div id="cebpe-fosb-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-FOSB</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-FOSB.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-FOSB.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-KLF1</h2>
+<div id="cebpe-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-PTPN12</h2>
+<div id="cebpe-ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-runx1t1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">CEBPE-RUNX1T1</h2>
+<div id="cebpe-runx1t1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-RUNX1T1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-RUNX1T1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-RUNX1T1.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-set"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-SET</h2>
+<div id="cebpe-set-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-SET</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-SET.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-SET.png'>
+</a></p>
+</div>
+</div>
+<div id="cebpe-spi1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CEBPE-SPI1</h2>
+<div id="cebpe-spi1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CEBPE-SPI1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CEBPE-SPI1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CEBPE-SPI1.png'>
+</a></p>
+</div>
+</div>
+<div id="celf2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CELF2</h2>
+<div id="celf2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CELF2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CELF2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CELF2.png'>
+</a></p>
+</div>
+</div>
+<div id="cks1b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CKS1B</h2>
+<div id="cks1b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CKS1B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CKS1B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CKS1B.png'>
+</a></p>
+</div>
+</div>
+<div id="cldn6-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CLDN6-KLF1</h2>
+<div id="cldn6-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CLDN6-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CLDN6-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CLDN6-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="cnn1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNN1</h2>
+<div id="cnn1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNN1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CNN1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CNN1.png'>
+</a></p>
+</div>
+</div>
+<div id="cnn1-ets2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNN1-ETS2</h2>
+<div id="cnn1-ets2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNN1-ETS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CNN1-ETS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CNN1-ETS2.png'>
+</a></p>
+</div>
+</div>
+<div id="cnn1-mapk1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNN1-MAPK1</h2>
+<div id="cnn1-mapk1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNN1-MAPK1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CNN1-MAPK1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CNN1-MAPK1.png'>
+</a></p>
+</div>
+</div>
+<div id="cnn1-ubash3a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNN1-UBASH3A</h2>
+<div id="cnn1-ubash3a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNN1-UBASH3A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CNN1-UBASH3A.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CNN1-UBASH3A.png'>
+</a></p>
+</div>
+</div>
+<div id="cnn1-ubash3b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">CNN1-UBASH3B</h2>
+<div id="cnn1-ubash3b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">CNN1-UBASH3B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/CNN1-UBASH3B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/CNN1-UBASH3B.png'>
+</a></p>
+</div>
+</div>
+<div id="col2a1-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">COL2A1-KLF1</h2>
+<div id="col2a1-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">COL2A1-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/COL2A1-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/COL2A1-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="dlx2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DLX2</h2>
+<div id="dlx2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DLX2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DLX2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DLX2.png'>
+</a></p>
+</div>
+</div>
+<div id="dlx2-snai1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DLX2-SNAI1</h2>
+<div id="dlx2-snai1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DLX2-SNAI1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DLX2-SNAI1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DLX2-SNAI1.png'>
+</a></p>
+</div>
+</div>
+<div id="dlx2-zbtb10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DLX2-ZBTB10</h2>
+<div id="dlx2-zbtb10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DLX2-ZBTB10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DLX2-ZBTB10.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DLX2-ZBTB10.png'>
+</a></p>
+</div>
+</div>
+<div id="dusp9-ets2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DUSP9-ETS2</h2>
+<div id="dusp9-ets2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DUSP9-ETS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DUSP9-ETS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DUSP9-ETS2.png'>
+</a></p>
+</div>
+</div>
+<div id="dusp9-igdcc3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DUSP9-IGDCC3</h2>
+<div id="dusp9-igdcc3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DUSP9-IGDCC3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DUSP9-IGDCC3.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DUSP9-IGDCC3.png'>
+</a></p>
+</div>
+</div>
+<div id="dusp9-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DUSP9-KLF1</h2>
+<div id="dusp9-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DUSP9-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DUSP9-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DUSP9-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="dusp9-prtg"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">DUSP9-PRTG</h2>
+<div id="dusp9-prtg-1" class="section level3 unnumbered">
+<h3 class="unnumbered">DUSP9-PRTG</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/DUSP9-PRTG.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/DUSP9-PRTG.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2</h2>
+<div id="ets2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-igdcc3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-IGDCC3</h2>
+<div id="ets2-igdcc3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-IGDCC3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-IGDCC3.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-IGDCC3.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-ikzf3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-IKZF3</h2>
+<div id="ets2-ikzf3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-IKZF3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-IKZF3.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-IKZF3.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-map7d1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-MAP7D1</h2>
+<div id="ets2-map7d1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-MAP7D1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-MAP7D1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-MAP7D1.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-mapk1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-MAPK1</h2>
+<div id="ets2-mapk1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-MAPK1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-MAPK1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-MAPK1.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-prtg"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-PRTG</h2>
+<div id="ets2-prtg-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-PRTG</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-PRTG.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-PRTG.png'>
+</a></p>
+</div>
+</div>
+<div id="ets2-tgfbr2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">ETS2-TGFBR2</h2>
+<div id="ets2-tgfbr2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">ETS2-TGFBR2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/ETS2-TGFBR2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/ETS2-TGFBR2.png'>
+</a></p>
+</div>
+</div>
+<div id="fev"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FEV</h2>
+<div id="fev-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FEV</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FEV.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FEV.png'>
+</a></p>
+</div>
+</div>
+<div id="fev-isl2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FEV-ISL2</h2>
+<div id="fev-isl2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FEV-ISL2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FEV-ISL2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FEV-ISL2.png'>
+</a></p>
+</div>
+</div>
+<div id="fev-map7d1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FEV-MAP7D1</h2>
+<div id="fev-map7d1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FEV-MAP7D1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FEV-MAP7D1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FEV-MAP7D1.png'>
+</a></p>
+</div>
+</div>
+<div id="fosb-ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FOSB-PTPN12</h2>
+<div id="fosb-ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOSB-PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FOSB-PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FOSB-PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="foxa1-foxa3"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FOXA1-FOXA3</h2>
+<div id="foxa1-foxa3-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXA1-FOXA3</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FOXA1-FOXA3.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FOXA1-FOXA3.png'>
+</a></p>
+</div>
+</div>
+<div id="foxa1-klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FOXA1-KLF1</h2>
+<div id="foxa1-klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXA1-KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FOXA1-KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FOXA1-KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="foxl2-znf318"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">FOXL2-ZNF318</h2>
+<div id="foxl2-znf318-1" class="section level3 unnumbered">
+<h3 class="unnumbered">FOXL2-ZNF318</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/FOXL2-ZNF318.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/FOXL2-ZNF318.png'>
+</a></p>
+</div>
+</div>
+<div id="hes7"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">HES7</h2>
+<div id="hes7-1" class="section level3 unnumbered">
+<h3 class="unnumbered">HES7</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/HES7.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/HES7.png'>
+</a></p>
+</div>
+</div>
+<div id="ikzf3-mapk1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">IKZF3-MAPK1</h2>
+<div id="ikzf3-mapk1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">IKZF3-MAPK1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/IKZF3-MAPK1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/IKZF3-MAPK1.png'>
+</a></p>
+</div>
+</div>
+<div id="irf1-set"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">IRF1-SET</h2>
+<div id="irf1-set-1" class="section level3 unnumbered">
+<h3 class="unnumbered">IRF1-SET</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/IRF1-SET.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/IRF1-SET.png'>
+</a></p>
+</div>
+</div>
+<div id="klf1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KLF1</h2>
+<div id="klf1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/KLF1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/KLF1.png'>
+</a></p>
+</div>
+</div>
+<div id="klf1-map2k6"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KLF1-MAP2K6</h2>
+<div id="klf1-map2k6-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF1-MAP2K6</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/KLF1-MAP2K6.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/KLF1-MAP2K6.png'>
+</a></p>
+</div>
+</div>
+<div id="klf1-set"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KLF1-SET</h2>
+<div id="klf1-set-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF1-SET</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/KLF1-SET.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/KLF1-SET.png'>
+</a></p>
+</div>
+</div>
+<div id="klf1-tgfbr2"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">KLF1-TGFBR2</h2>
+<div id="klf1-tgfbr2-1" class="section level3 unnumbered">
+<h3 class="unnumbered">KLF1-TGFBR2</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/KLF1-TGFBR2.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/KLF1-TGFBR2.png'>
+</a></p>
+</div>
+</div>
+<div id="mapk1-prtg"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">MAPK1-PRTG</h2>
+<div id="mapk1-prtg-1" class="section level3 unnumbered">
+<h3 class="unnumbered">MAPK1-PRTG</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/MAPK1-PRTG.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/MAPK1-PRTG.png'>
+</a></p>
+</div>
+</div>
+<div id="nit1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">NIT1</h2>
+<div id="nit1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">NIT1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/NIT1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/NIT1.png'>
+</a></p>
+</div>
+</div>
+<div id="osr2-ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">OSR2-PTPN12</h2>
+<div id="osr2-ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">OSR2-PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/OSR2-PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/OSR2-PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN12</h2>
+<div id="ptpn12-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-ptpn9"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN12-PTPN9</h2>
+<div id="ptpn12-ptpn9-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-PTPN9</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-PTPN9.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-PTPN9.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-samd1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN12-SAMD1</h2>
+<div id="ptpn12-samd1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-SAMD1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-SAMD1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-SAMD1.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-snai1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN12-SNAI1</h2>
+<div id="ptpn12-snai1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-SNAI1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-SNAI1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-SNAI1.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-ubash3a"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">PTPN12-UBASH3A</h2>
+<div id="ptpn12-ubash3a-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-UBASH3A</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-UBASH3A.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-UBASH3A.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-ubash3b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">PTPN12-UBASH3B</h2>
+<div id="ptpn12-ubash3b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-UBASH3B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-UBASH3B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-UBASH3B.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-zbtb10"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">PTPN12-ZBTB10</h2>
+<div id="ptpn12-zbtb10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-ZBTB10</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-ZBTB10.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-ZBTB10.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn12-zbtb25"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">PTPN12-ZBTB25</h2>
+<div id="ptpn12-zbtb25-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN12-ZBTB25</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN12-ZBTB25.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN12-ZBTB25.png'>
+</a></p>
+</div>
+</div>
+<div id="ptpn13"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">PTPN13</h2>
+<div id="ptpn13-1" class="section level3 unnumbered">
+<h3 class="unnumbered">PTPN13</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/PTPN13.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/PTPN13.png'>
+</a></p>
+</div>
+</div>
+<div id="rhoxf2-set"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">RHOXF2-SET</h2>
+<div id="rhoxf2-set-1" class="section level3 unnumbered">
+<h3 class="unnumbered">RHOXF2-SET</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/RHOXF2-SET.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/RHOXF2-SET.png'>
+</a></p>
+</div>
+</div>
+<div id="rreb1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">RREB1</h2>
+<div id="rreb1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">RREB1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/RREB1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/RREB1.png'>
+</a></p>
+</div>
+</div>
+<div id="runx1t1"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">RUNX1T1</h2>
+<div id="runx1t1-1" class="section level3 unnumbered">
+<h3 class="unnumbered">RUNX1T1</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/RUNX1T1.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/RUNX1T1.png'>
+</a></p>
+</div>
+</div>
+<div id="set"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2 class="unnumbered tabset tabset-pills tabset-fade">SET</h2>
+<div id="set-1" class="section level3 unnumbered">
+<h3 class="unnumbered">SET</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/SET.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/SET.png'>
+</a></p>
+</div>
+</div>
+<div id="ubash3a-ubash3b"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">UBASH3A-UBASH3B</h2>
+<div id="ubash3a-ubash3b-1" class="section level3 unnumbered">
+<h3 class="unnumbered">UBASH3A-UBASH3B</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/UBASH3A-UBASH3B.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/UBASH3A-UBASH3B.png'>
+</a></p>
+</div>
+</div>
+<div id="ubash3b-zbtb25"
+class="section level2 unnumbered tabset tabset-pills tabset-fade">
+<h2
+class="unnumbered tabset tabset-pills tabset-fade">UBASH3B-ZBTB25</h2>
+<div id="ubash3b-zbtb25-1" class="section level3 unnumbered">
+<h3 class="unnumbered">UBASH3B-ZBTB25</h3>
+<p><a data-fancybox href='figures/prediction/Genetic_perturbation/Norman/UBASH3B-ZBTB25.png'>
+<img src='figures/prediction/Genetic_perturbation/Norman/UBASH3B-ZBTB25.png'>
+</a></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

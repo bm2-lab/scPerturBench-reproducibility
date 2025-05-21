@@ -11,7 +11,7 @@
 
 
 
-<title>Task_Cellular_ood.knit</title>
+<title>Usability</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,11 +29,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
 for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
 MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
@@ -227,6 +228,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -234,6 +298,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -249,55 +323,61 @@ $(function(){
 
 
 
+<h1 class="title toc-ignore">Usability</h1>
 
 </div>
 
 
-<style type="text/css">
-.two-column-list ul {
-  column-count: 2;
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-gap: 30px;
-  list-style-position: inside;
-  padding-left: 0;
-}
-</style>
-<p>This page presents method performance under the
-<strong>o.o.d.</strong> setting of cellular context generalization
-scenario.</p>
-<p>Please click on a dataset below for detailed results.</p>
-<p><strong>Datasets</strong></p>
-<div class="two-column-list">
-<ul>
-<li><a
-href="Task_Cellular_ood_Dataset_KangCrossCell_Accuracy.html">KangCrossCell</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_KangCrossPatient_Accuracy.html">KangCrossPatient</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_Parekh_Accuracy.html">Parekh</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_Haber_Accuracy.html">Haber</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_CrossPatient_Accuracy.html">CrossPatient</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_KaggleCrossPatient_Accuracy.html">KaggleCrossPatient</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_KaggleCrossCell_Accuracy.html">KaggleCrossCell</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_CrossSpecies_Accuracy.html">CrossSpecies</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_McFarland_Accuracy.html">McFarland</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_Afriat_Accuracy.html">Afriat</a></li>
-<li><a href="Task_Cellular_ood_Dataset_TCDD_Accuracy.html">TCDD</a></li>
-<li><a
-href="Task_Cellular_ood_Dataset_Sciplex3_Accuracy.html">Sciplex3</a></li>
-</ul>
+<div id="rank-based-results" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Rank-based results</h1>
+<p>We employed a straightforward ranking-based strategy to evaluate the
+relative performance of the selected methods across the six metrics.
+Specifically, within each dataset, the methods were ranked on the basis
+of their raw outputs for each metric. The overall ranking of a method in
+a given dataset was then calculated by averaging its ranks across the
+six metrics. To obtain a final ranking across all the datasets, we
+averaged the overall rankings from each dataset. This ranking-based
+approach addresses potential inconsistencies in value ranges between
+different metrics, ensuring a fair comparison.</p>
+</div>
+<div id="score-based-results" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Score-based
+results</h1>
+<p>To facilitate fair and convenient comparison between newly developed
+tools and those included in our benchmark, we provide the raw results of
+all benchmarked methods across six evaluation metrics. Once users obtain
+prediction results from their own models, they can use the code provided
+in our Podman image (<a href="https://github.com/bm2-lab/scPerturBench"
+class="uri">https://github.com/bm2-lab/scPerturBench</a>) to compute
+performance on the same six metrics and directly compare their results
+with those of existing methods.</p>
+</div>
+<div id="the-top-100-degs-and-all-genes" class="section level1"
+number="3">
+<h1><span class="header-section-number">3</span> The top 100 DEGs and
+all genes</h1>
+<p>We calculated the metrics in two ways: for all genes and for the top
+100 most differentially expressed genes (DEGs), ranked by absolute
+effect sizes. The top 100 DEGs are typically intervention-specific and
+represent the most significant responses to the perturbations. Metrics
+calculated based on this smaller, biologically meaningful gene set are
+generally preferred in the field, as genes with modest expression
+changes contribute little to understanding perturbation effects. For the
+evaluation based on all genes, we did not compute the Wasserstein
+distance and Common-DEGs metrics for the following reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>Wasserstein distance becomes computationally expensive and prone
+to errors in high-dimensional settings;</p></li>
+<li><p>Computing the Common-DEGs metric is not informative in this
+context, as all methods yield a perfect score (i.e., a value of
+1).</p></li>
+</ol>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -330,6 +410,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
