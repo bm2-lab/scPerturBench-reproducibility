@@ -108,3 +108,10 @@
 .center {
   text-align: center;
 }
+
+p {
+  text-align: justify;
+  /* -webkit-hyphens: auto; */
+  /* -ms-hyphens: auto; */
+  /* hyphens: auto; */
+}
