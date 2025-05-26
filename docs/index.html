@@ -11,7 +11,7 @@
 
 
 
-<title>Recommendations and solutions for generalizable single-cell perturbation response prediction obtained from a systematic benchmark</title>
+<title>Benchmarking algorithms for generalizable single-cell perturbation response prediction</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -249,9 +249,8 @@ $(function(){
 
 
 
-<h1 class="title toc-ignore">Recommendations and solutions for
-generalizable single-cell perturbation response prediction obtained from
-a systematic benchmark</h1>
+<h1 class="title toc-ignore">Benchmarking algorithms for generalizable
+single-cell perturbation response prediction</h1>
 
 </div>
 
@@ -261,39 +260,39 @@ perturbation effects, but despite claims of promising performance,
 concerns about the true efficacy of these models continue to be raised,
 particularly when the models are evaluated across diverse unseen
 cellular contexts and unseen perturbations. To address this, a
-comprehensive benchmark was conducted for 21 single-cell perturbation
+comprehensive benchmark was conducted for 27 single-cell perturbation
 response prediction methods, including methods concerning genetic and
 chemical perturbations; 29 datasets were used, and various evaluation
 metrics were applied to assess the generalizability of the methods to
-unseen cellular contexts and perturbations. Recommendations regarding
-the method limitations, method generalization and method selection were
-obtained. Finally, an applicable solution that leverages prior knowledge
-through cellular context embedding to improve the generalizability of
-models to new cellular contexts is presented.</p>
-<p><a data-fancybox href="figures/index/fig1.png">
-<img src="figures/index/fig1.png"> </a></p>
+unseen cellular contexts and perturbations. Insights regarding the
+method limitations, method generalization and method selection were
+obtained. Finally, an solution that leverages prior knowledge through
+cellular context embedding to improve the generalizability of models to
+new cellular contexts is presented.</p>
+<p><a data-fancybox href="figures/index/fig1.jpg">
+<img src="figures/index/fig1.jpg"> </a></p>
 <p><br/></p>
 <div id="benchmark-methods" class="section level2">
 <h2>Benchmark methods</h2>
 <p>All benchmark methods analyzed in our study are listed below. Details
 of the setting were available in our manuscript.</p>
-<div id="vntrnvohca" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vntrnvohca table {
+<div id="gnezcqtuga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gnezcqtuga table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vntrnvohca thead, #vntrnvohca tbody, #vntrnvohca tfoot, #vntrnvohca tr, #vntrnvohca td, #vntrnvohca th {
+#gnezcqtuga thead, #gnezcqtuga tbody, #gnezcqtuga tfoot, #gnezcqtuga tr, #gnezcqtuga td, #gnezcqtuga th {
   border-style: none;
 }
 
-#vntrnvohca p {
+#gnezcqtuga p {
   margin: 0;
   padding: 0;
 }
 
-#vntrnvohca .gt_table {
+#gnezcqtuga .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -319,12 +318,12 @@ of the setting were available in our manuscript.</p>
   border-left-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_caption {
+#gnezcqtuga .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vntrnvohca .gt_title {
+#gnezcqtuga .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -336,7 +335,7 @@ of the setting were available in our manuscript.</p>
   border-bottom-width: 0;
 }
 
-#vntrnvohca .gt_subtitle {
+#gnezcqtuga .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -348,7 +347,7 @@ of the setting were available in our manuscript.</p>
   border-top-width: 0;
 }
 
-#vntrnvohca .gt_heading {
+#gnezcqtuga .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -360,13 +359,13 @@ of the setting were available in our manuscript.</p>
   border-right-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_bottom_border {
+#gnezcqtuga .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_col_headings {
+#gnezcqtuga .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -381,7 +380,7 @@ of the setting were available in our manuscript.</p>
   border-right-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_col_heading {
+#gnezcqtuga .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,7 +400,7 @@ of the setting were available in our manuscript.</p>
   overflow-x: hidden;
 }
 
-#vntrnvohca .gt_column_spanner_outer {
+#gnezcqtuga .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -413,15 +412,15 @@ of the setting were available in our manuscript.</p>
   padding-right: 4px;
 }
 
-#vntrnvohca .gt_column_spanner_outer:first-child {
+#gnezcqtuga .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vntrnvohca .gt_column_spanner_outer:last-child {
+#gnezcqtuga .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vntrnvohca .gt_column_spanner {
+#gnezcqtuga .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -433,11 +432,11 @@ of the setting were available in our manuscript.</p>
   width: 100%;
 }
 
-#vntrnvohca .gt_spanner_row {
+#gnezcqtuga .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vntrnvohca .gt_group_heading {
+#gnezcqtuga .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -463,7 +462,7 @@ of the setting were available in our manuscript.</p>
   text-align: left;
 }
 
-#vntrnvohca .gt_empty_group_heading {
+#gnezcqtuga .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -478,15 +477,15 @@ of the setting were available in our manuscript.</p>
   vertical-align: middle;
 }
 
-#vntrnvohca .gt_from_md > :first-child {
+#gnezcqtuga .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vntrnvohca .gt_from_md > :last-child {
+#gnezcqtuga .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vntrnvohca .gt_row {
+#gnezcqtuga .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -505,7 +504,7 @@ of the setting were available in our manuscript.</p>
   overflow-x: hidden;
 }
 
-#vntrnvohca .gt_stub {
+#gnezcqtuga .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -518,7 +517,7 @@ of the setting were available in our manuscript.</p>
   padding-right: 5px;
 }
 
-#vntrnvohca .gt_stub_row_group {
+#gnezcqtuga .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -532,15 +531,15 @@ of the setting were available in our manuscript.</p>
   vertical-align: top;
 }
 
-#vntrnvohca .gt_row_group_first td {
+#gnezcqtuga .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vntrnvohca .gt_row_group_first th {
+#gnezcqtuga .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vntrnvohca .gt_summary_row {
+#gnezcqtuga .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -550,16 +549,16 @@ of the setting were available in our manuscript.</p>
   padding-right: 5px;
 }
 
-#vntrnvohca .gt_first_summary_row {
+#gnezcqtuga .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_first_summary_row.thick {
+#gnezcqtuga .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vntrnvohca .gt_last_summary_row {
+#gnezcqtuga .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,7 +568,7 @@ of the setting were available in our manuscript.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_grand_summary_row {
+#gnezcqtuga .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -579,7 +578,7 @@ of the setting were available in our manuscript.</p>
   padding-right: 5px;
 }
 
-#vntrnvohca .gt_first_grand_summary_row {
+#gnezcqtuga .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -589,7 +588,7 @@ of the setting were available in our manuscript.</p>
   border-top-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_last_grand_summary_row_top {
+#gnezcqtuga .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -599,11 +598,11 @@ of the setting were available in our manuscript.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_striped {
+#gnezcqtuga .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vntrnvohca .gt_table_body {
+#gnezcqtuga .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -612,7 +611,7 @@ of the setting were available in our manuscript.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_footnotes {
+#gnezcqtuga .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -626,7 +625,7 @@ of the setting were available in our manuscript.</p>
   border-right-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_footnote {
+#gnezcqtuga .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -635,7 +634,7 @@ of the setting were available in our manuscript.</p>
   padding-right: 5px;
 }
 
-#vntrnvohca .gt_sourcenotes {
+#gnezcqtuga .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -649,7 +648,7 @@ of the setting were available in our manuscript.</p>
   border-right-color: #D3D3D3;
 }
 
-#vntrnvohca .gt_sourcenote {
+#gnezcqtuga .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -657,72 +656,72 @@ of the setting were available in our manuscript.</p>
   padding-right: 5px;
 }
 
-#vntrnvohca .gt_left {
+#gnezcqtuga .gt_left {
   text-align: left;
 }
 
-#vntrnvohca .gt_center {
+#gnezcqtuga .gt_center {
   text-align: center;
 }
 
-#vntrnvohca .gt_right {
+#gnezcqtuga .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vntrnvohca .gt_font_normal {
+#gnezcqtuga .gt_font_normal {
   font-weight: normal;
 }
 
-#vntrnvohca .gt_font_bold {
+#gnezcqtuga .gt_font_bold {
   font-weight: bold;
 }
 
-#vntrnvohca .gt_font_italic {
+#gnezcqtuga .gt_font_italic {
   font-style: italic;
 }
 
-#vntrnvohca .gt_super {
+#gnezcqtuga .gt_super {
   font-size: 65%;
 }
 
-#vntrnvohca .gt_footnote_marks {
+#gnezcqtuga .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vntrnvohca .gt_asterisk {
+#gnezcqtuga .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vntrnvohca .gt_indent_1 {
+#gnezcqtuga .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vntrnvohca .gt_indent_2 {
+#gnezcqtuga .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vntrnvohca .gt_indent_3 {
+#gnezcqtuga .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vntrnvohca .gt_indent_4 {
+#gnezcqtuga .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vntrnvohca .gt_indent_5 {
+#gnezcqtuga .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vntrnvohca .katex-display {
+#gnezcqtuga .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vntrnvohca div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gnezcqtuga div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -896,7 +895,10 @@ href="https://10.5281/zenodo.14638779">Zenodo-perturbation</a>.</p>
 <hr style="border: none; height: 1px; background-color: #333333; margin-top: 1em; margin-bottom: 1em;">
 <div
 style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; padding: 10px;">
-<p><a href="https://github.com/bm2-lab/scPerturBench/" target="_blank" title="scPerturb" style="margin: 10px;">
+<p><a href="https://github.com/bm2-lab/scPerturBench/" target="_blank" title="scPerturbench" style="margin: 10px;">
+<img src="figures/index/scPerturbench.png" alt="scPerturb Logo" style="width:150px; height:auto; border:0;">
+</a></p>
+<p><a href="https://www.sanderlab.org/scPerturb/" target="_blank" title="scPerturb" style="margin: 10px;">
 <img src="figures/index/scPerturb.png" alt="scPerturb Logo" style="width:150px; height:auto; border:0;">
 </a></p>
 <p><a href="http://www.perturbase.cn/" target="_blank" title="PerturBase" style="margin: 10px;">
